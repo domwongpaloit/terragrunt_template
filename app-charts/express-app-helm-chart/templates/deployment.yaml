@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: {{ .Values.appName }}
-          image: dominwong4/express-app:v3
+          image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
           ports:
             - containerPort: 3000
           # resources:

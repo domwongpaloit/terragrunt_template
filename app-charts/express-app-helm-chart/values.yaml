@@ -6,3 +6,9 @@ appName: express-app
 replicaCount: 1
 
 namespace: staging
+
+ingressClassName: external-ingress-nginx
+
+image:
+  name: dominwong4/express-app
+  tag: v3
