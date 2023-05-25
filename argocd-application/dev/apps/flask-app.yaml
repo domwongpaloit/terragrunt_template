@@ -21,7 +21,7 @@ spec:
         - name: "namespace"
           value: "flask-app-dev"
         - name: "ingressClassName"
-          value: "nginx"
+          value: "external-ingerss-nginx"
         - name: "image.name"
           value: "dominwong4/flask-app"
         - name: "image.tag"
