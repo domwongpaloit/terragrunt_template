@@ -5,7 +5,7 @@ metadata:
   name: flask-app
   namespace: argocd
   annotations:
-    argocd-image-updater.argoproj.io/image-list: dominwong4/flask-app:~0.0.1
+    argocd-image-updater.argoproj.io/image-list: dominwong4/flask-app:~0.0.2
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -21,7 +21,7 @@ spec:
         - name: "namespace"
           value: "flask-app-dev"
         - name: "ingressClassName"
-          value: "external-ingerss-nginx"
+          value: "external-ingress-nginx"
         - name: "image.name"
           value: "dominwong4/flask-app"
         - name: "image.tag"
