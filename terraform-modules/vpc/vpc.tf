@@ -2,7 +2,7 @@ module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "3.14.3"
 
-  name = "${var.env}-main"
+  name = "dom-reuseable-terragrunt-vpc-${var.env}"
   cidr = var.vpc_cidr_block
 
   azs             = var.azs
@@ -22,7 +22,7 @@ module "vpc" {
   enable_dns_support   = true
 
   tags = {
-    Name        = "${var.env}-vpc"
+    Name        = "dom-reuseable-terragrunt-vpc-${var.env}"
     Environment = "${var.env}",
     Terraform   = true
   }

@@ -21,7 +21,7 @@ spec:
         - name: "namespace"
           value: "dev"
         - name: "ingressClassName"
-          value: "external-ingress-nginx"
+          value: "nginx"
         - name: "image.name"
           value: "dominwong4/express-app"
         - name: "image.tag"
