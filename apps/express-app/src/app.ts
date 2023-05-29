@@ -17,4 +17,14 @@ app.get('/', (req, res) => {
     })
 })
 
+app.get('/fib/:index', (req, res) => {
+    const n = req.params.index;
+    function fib(n: number): number {
+        if (n < 2) return n;
+        return fib(n - 1) + fib(n - 2);
+    }
+    const fib_number = fib(parseInt(n));
+    res.json({ fib_number });
+});
+
 export default app;
