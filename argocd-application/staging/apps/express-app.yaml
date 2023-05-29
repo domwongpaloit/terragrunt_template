@@ -16,8 +16,6 @@ spec:
     path: app-charts/express-app-helm-chart
     helm:
       parameters:
-        - name: "replicaCount"
-          value: "2"
         - name: "namespace"
           value: "staging"
         - name: "ingressClassName"
@@ -25,7 +23,7 @@ spec:
         - name: "image.name"
           value: "dominwong4/express-app"
         - name: "image.tag"
-          value: "v3"
+          value: "v3.1.5"
   destination:
     server: https://kubernetes.default.svc
     namespace: staging
