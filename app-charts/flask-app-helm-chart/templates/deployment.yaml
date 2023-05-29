@@ -18,6 +18,10 @@ spec:
           image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
           ports:
             - containerPort: 3000
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "1000m"
           # resources:
           #   limits:
           #     memory: "128Mi"
