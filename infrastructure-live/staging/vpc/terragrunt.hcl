@@ -21,12 +21,12 @@ inputs = {
 
   private_subnet_tags = {
     "kubernetes.io/role/internal-elb" = 1
-    "kubernetes.io/cluster/dev-demo"  = "owned"
+    "kubernetes.io/cluster/staging-demo"  = "owned"
   }
 
   public_subnet_tags = {
     "kubernetes.io/role/elb"         = 1
-    "kubernetes.io/cluster/staging" = "owned"
+    "kubernetes.io/cluster/staging-demo" = "owned"
   }
   nat_eip_tags = {
     "Name" : "${include.env.locals.env}-nat"

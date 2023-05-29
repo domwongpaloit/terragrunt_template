@@ -22,8 +22,7 @@ inputs = {
         }
 
     eks_managed_node_groups = {
-            blue = {}
-            green = {
+            eks_node = {
                 min_size     = 1
                 max_size     = 10
                 desired_size = 1
