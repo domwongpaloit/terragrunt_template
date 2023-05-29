@@ -1,4 +1,4 @@
-from flask import Flask, request, make_response
+from flask import Flask, request, make_response, jsonify
 from prometheus_flask_exporter import PrometheusMetrics
 from prometheus_client import Counter, Histogram, generate_latest
 
@@ -41,6 +41,22 @@ def error():
 @app.route('/metrics')
 def metrics():
     return make_response(generate_latest())
+
+@app.route('/fib/<int:n>')
+def fib(n):
+    if n < 0 or n > 38:
+        return jsonify({
+            'status': 'failed',
+            'message': 'index can not be <0 || >38'
+        }), 422
+    
+    def fib_recursive(n): 
+        if n < 2:
+            return n
+        return fib_recursive(n-1) + fib_recursive(n-2)
+
+    result = fib_recursive(n)
+    return jsonify({'fib_number': result}), 200
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=3000)

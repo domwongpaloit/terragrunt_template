@@ -18,13 +18,19 @@ app.get('/', (req, res) => {
 })
 
 app.get('/fib/:index', (req, res) => {
-    const n = req.params.index;
+    const n = parseInt(req.params.index);
+    if (n < 0 || n > 38) {
+        res.status(422).json({
+            status: "failed",
+            message: "index can not be <0 || >38"
+        })
+    }
     function fib(n: number): number {
         if (n < 2) return n;
         return fib(n - 1) + fib(n - 2);
     }
-    const fib_number = fib(parseInt(n));
-    res.json({ fib_number });
+    const fib_number = fib(n);
+    res.status(200).json({ fib_number });
 });
 
 export default app;
