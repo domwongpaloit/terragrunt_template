@@ -24,7 +24,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return "Hello, World!", 200
+    return "Hello, World! v0.0.4", 200
 
 @app.route("/about") 
 def about():
