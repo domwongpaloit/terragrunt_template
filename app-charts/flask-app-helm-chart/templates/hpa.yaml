@@ -19,7 +19,7 @@ spec:
           averageUtilization: "50"
         name: memory
         target:
-          type: Utilization
+          type: AverageValue
           averageValue: "80"
   behavior:
     scaleDown:
