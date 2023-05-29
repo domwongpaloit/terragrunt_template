@@ -18,7 +18,7 @@ inputs = {
     subnet_ids = dependency.vpc.outputs.private_subnets
 
     eks_managed_node_group_defaults = {
-            instance_types = ["c3.large"]
+            instance_types = ["c3.xlarge"]
         }
 
     eks_managed_node_groups = {
@@ -26,7 +26,7 @@ inputs = {
                 min_size     = 1
                 max_size     = 10
                 desired_size = 1
-                instance_types = ["c3.large"]
+                instance_types = ["c3.xlarge"]
                 capacity_type  = "ON_DEMAND"
             }
         }
