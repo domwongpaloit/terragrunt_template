@@ -11,7 +11,7 @@ spec:
     # - host: helloworld.info
     - http:
         paths:
-          - path: /next-app(/|$)(.*)
+          - path: /(/|$)(.*)
             pathType: Prefix
             backend:
               service:
