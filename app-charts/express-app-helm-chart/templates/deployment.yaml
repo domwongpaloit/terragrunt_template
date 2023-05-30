@@ -4,6 +4,7 @@ metadata:
   name: {{ .Values.appName }}
   namespace: {{ .Values.namespace }}
 spec:
+  # Comment this for enabling HPA in Argo cd
   # replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
@@ -20,8 +21,8 @@ spec:
             - containerPort: 3000
           resources:
             requests:
-              memory: "1024Mi"
-              cpu: "2000m"
+              memory: "128Mi"
+              cpu: "500m"
           # resources:
           #   limits:
           #     memory: "128Mi"
