@@ -17,7 +17,7 @@ spec:
     helm:
       parameters:
         - name: "namespace"
-          value: "staging"
+          value: "next13-app-staging"
         - name: "ingressClassName"
           value: "external-ingress-nginx"
         - name: "image.name"
