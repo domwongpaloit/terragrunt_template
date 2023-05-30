@@ -13,7 +13,7 @@ app.use(promMid({
 app.get('/', (req, res) => {
     res.status(200).json({
         status: "success",
-        message: "Hello New World (metrics version) v3.1.3"
+        message: "Hello New World (metrics version) v3.1.6"
     })
 })
 
