@@ -1,0 +1,41 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: flask-app
+  namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: dominwong4/flask-app:~0.0.2
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/domwongpaloit/terragrunt_template.git
+    targetRevision: dev
+    path: app-charts/flask-app-helm-chart
+    helm:
+      parameters:
+        - name: "replicaCount"
+          value: "1"
+        - name: "namespace"
+          value: "flask-app-dev"
+        - name: "ingressClassName"
+          value: "nginx"
+        - name: "image.name"
+          value: "dominwong4/flask-app"
+        - name: "image.tag"
+          value: "0.0.1"
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: dev
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true
+      allowEmpty: false
+    syncOptions:
+      - Validate=true
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true

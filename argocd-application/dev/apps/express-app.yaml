@@ -1,0 +1,41 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: express-app
+  namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: dominwong4/express-app:~v3
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/domwongpaloit/terragrunt_template.git
+    targetRevision: dev
+    path: app-charts/express-app-helm-chart
+    helm:
+      parameters:
+        - name: "replicaCount"
+          value: "2"
+        - name: "namespace"
+          value: "dev"
+        - name: "ingressClassName"
+          value: "nginx"
+        - name: "image.name"
+          value: "dominwong4/express-app"
+        - name: "image.tag"
+          value: "v3"
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: dev
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true
+      allowEmpty: false
+    syncOptions:
+      - Validate=true
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true

@@ -1,0 +1,14 @@
+# Default values for express-app-helm-chart.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+appName: express-app
+replicaCount: 1
+
+namespace: staging
+
+ingressClassName: external-ingress-nginx
+
+image:
+  name: dominwong4/express-app
+  tag: v3

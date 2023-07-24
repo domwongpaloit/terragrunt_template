@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: express-app
+  namespace: staging
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  ingressClassName: external-ingress-nginx
+  rules:
+    # - host: helloworld.info
+    - http:
+        paths:
+          - path: /express-app(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: express-app
+                port:
+                  number: 80
