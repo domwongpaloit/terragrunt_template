@@ -14,7 +14,7 @@ include "env" {
 
 inputs = {
     env = include.env.locals.env
-    eks_name = "dom-eks-demo"
+    eks_name = "${include.env.locals.name}-eks-demo"
     subnet_ids = dependency.vpc.outputs.private_subnets
 
     eks_managed_node_group_defaults = {
