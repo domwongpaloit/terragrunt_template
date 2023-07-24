@@ -2,7 +2,7 @@ module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "3.14.3"
 
-  name = "dom-reuseable-terragrunt-vpc-${var.env}"
+  name = "${var.name}-reuseable-terragrunt-vpc-${var.env}"
   cidr = var.vpc_cidr_block
 
   azs             = var.azs

@@ -4,6 +4,11 @@ variable "env" {
   # value       = "dev"
 }
 
+variable "name" {
+  description = "App name"
+  type        = string
+}
+
 variable "vpc_cidr_block" {
   description = "cidr"
   type        = string
