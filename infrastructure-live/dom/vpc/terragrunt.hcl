@@ -27,7 +27,7 @@ inputs = {
 
   public_subnet_tags = {
     "kubernetes.io/role/elb"         = 1
-    "kubernetes.io/cluster/${include.env.locals.env}-${include.env.locals.name}eks-demo" = "owned"
+    "kubernetes.io/cluster/${include.env.locals.env}-${include.env.locals.name}-eks-demo" = "owned"
   }
   nat_eip_tags = {
     "Name" : "${include.env.locals.env}-${include.env.locals.name}-nat"
