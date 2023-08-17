@@ -5,7 +5,7 @@ metadata:
   name: flask-app
   namespace: argocd
   annotations:
-    argocd-image-updater.argoproj.io/image-list: dominwong4/flask-app:~0.0.2
+    argocd-image-updater.argoproj.io/image-list: dominwong4/flask-app:~0.0.8
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -23,7 +23,7 @@ spec:
         - name: "image.name"
           value: "dominwong4/flask-app"
         - name: "image.tag"
-          value: "0.0.5"
+          value: "0.0.8"
   destination:
     server: https://kubernetes.default.svc
     namespace: staging
