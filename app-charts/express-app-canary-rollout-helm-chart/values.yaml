@@ -1,0 +1,14 @@
+# Default values for express-app-canary-rollout-helm-chart.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+appName: express-app-canary-rollout-helm-chart-app
+replicaCount: 2
+
+namespace: staging
+
+ingressClassName: external-ingress-nginx
+
+image:
+  name: dominwong4/express-app
+  tag: v3
